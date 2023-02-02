@@ -10,9 +10,9 @@ public class LambdaExample {
         SystemClockObserver systemClockObserver = new SystemClockObserver();
         systemClockObserver.startObserve(callback);
         ///
-        systemClockObserver.startObserve(callback2);
-        ///
-        systemClockObserver.startObserve(callback);
+        //systemClockObserver.startObserve(callback2);
+        /////
+        //systemClockObserver.startObserve(callback);
     }
 }
 @FunctionalInterface

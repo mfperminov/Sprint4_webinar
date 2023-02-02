@@ -6,6 +6,7 @@ public class Triple<A, B, C> extends Pair<A, B> {
 
     public final C third;
 
+    // TODO ответить на вопрос из пачки про наследование дженериков
     public Triple(A first, B second, C third) {
         super(first, second);
         this.third = third;
