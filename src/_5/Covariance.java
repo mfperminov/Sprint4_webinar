@@ -4,7 +4,9 @@ import java.util.*;
 
 public class Covariance {
     <T> void find(Iterable<? extends T> where, T what) {
-
+        while (where.iterator().hasNext()) {
+            System.out.println(where.iterator().next());
+        }
     }
 }
 
@@ -34,7 +36,7 @@ class Behemoth extends Animal {}
 class CheckAnimal {
     public static void main(String[] args) {
         Covariance covariance = new Covariance();
-        covariance.find(new CatCreator(), new Cat());
+        covariance.find(new AnimalIterator(), new Dog());
         List<Dog> dogs = new ArrayList<>();
         Comparator<Animal> comparator = new FoodChainPositionComparator();
         Contrvariance contrvariance = new Contrvariance();
@@ -44,19 +46,21 @@ class CheckAnimal {
 
 class Cat extends Animal {}
 
-class CatCreator extends Animal implements Iterable<Cat>{
-
+class AnimalIterator implements Iterable<Animal>{
+    int count = 3;
     @Override
-    public Iterator<Cat> iterator() {
+    public Iterator<Animal> iterator() {
         return new Iterator<>() {
+
             @Override
             public boolean hasNext() {
-                return true;
+                return count > 0;
             }
 
             @Override
-            public Cat next() {
-                return new Cat();
+            public Animal next() {
+                count--;
+                if (new Random().nextBoolean()) return new Cat(); else return new Dog();
             }
         };
     }

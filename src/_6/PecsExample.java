@@ -1,6 +1,7 @@
 package _6;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class PecsExample {
@@ -31,7 +32,7 @@ public class PecsExample {
         Profile<DebitAccount> dp = new Profile<>( debitAccount );
         Profile<BankAccount> bp = new Profile<>( bankAccount );
 
-        bp = dp; // не ок
+        //bp = dp; // не ок
     }
 
     // делаем инвариантный объект ковариантным (сохраняем иерархию наследования)
@@ -62,7 +63,7 @@ public class PecsExample {
 
         ArrayList<Profile<BankAccount>> profiles = new ArrayList<>();
         profiles.add(bp);
-        profiles.add(dp); // инвариантность дженериков не дает нам это сделать
+        //profiles.add(dp); // инвариантность дженериков не дает нам это сделать
 
 
         // делаем ковариантность (сохраняем иерархию наследования)
@@ -70,6 +71,15 @@ public class PecsExample {
         profilesExtended.add(bp);
         profilesExtended.add(dp);
 
+    }
+
+    public void example5(List<BankAccount> accounts) {
+
+    }
+
+    public void example6() {
+        List<DebitAccount> accounts = new ArrayList<>();
+        //example5(accounts); ошибка, нужно использовать wildcard
     }
 }
 
