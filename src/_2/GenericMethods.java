@@ -8,14 +8,14 @@ public class GenericMethods {
     }
 
     public static void main(String[] args) {
-        GenericMethods gm = new GenericMethods();
-        gm.printClassName("");
-        gm.printClassName(1);
-        gm.printClassName(1.0);
-        gm.printClassName(1.0F);
-        gm.printClassName('c');
-        gm.printClassName(gm);
-        Pair<Integer, String> p = createPair(42, "hi");
+        GenericMethods instance = new GenericMethods();
+        instance.printClassName("");
+        instance.printClassName(1);
+        instance.printClassName(1.0);
+        instance.printClassName(1.0F);
+        instance.printClassName('c');
+        instance.printClassName(instance);
+        Pair<Integer, String> pair = createPair(42, "hi");
     }
 
     public static <A, B> Pair<A, B> createPair(A a, B b) {
@@ -23,4 +23,3 @@ public class GenericMethods {
     }
 }
 
-// pair rewrite

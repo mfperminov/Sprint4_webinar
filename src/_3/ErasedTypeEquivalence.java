@@ -11,3 +11,4 @@ public class ErasedTypeEquivalence {
         System.out.println(c1 == c2);
     }
 }
+

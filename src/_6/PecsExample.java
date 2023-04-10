@@ -2,7 +2,6 @@ package _6;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class PecsExample {
     public static void main(String[] args) {
@@ -62,6 +61,7 @@ public class PecsExample {
         Profile<BankAccount> bp = new Profile<>( bankAccount );
 
         ArrayList<Profile<BankAccount>> profiles = new ArrayList<>();
+        profiles.iterator();
         profiles.add(bp);
         //profiles.add(dp); // инвариантность дженериков не дает нам это сделать
 

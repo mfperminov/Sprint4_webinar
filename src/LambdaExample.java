@@ -1,37 +1,42 @@
-import java.time.Instant;
-import java.util.Date;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+import java.util.function.Function;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 public class LambdaExample {
-
-    private static Callback callback = date -> System.out.println("new date " + date);
-    private static Callback callback2 = date -> System.out.println("Date changed");
-
     public static void main(String[] args) {
-        SystemClockObserver systemClockObserver = new SystemClockObserver();
-        systemClockObserver.startObserve(callback);
-        ///
-        //systemClockObserver.startObserve(callback2);
-        /////
-        //systemClockObserver.startObserve(callback);
-    }
-}
-@FunctionalInterface
-interface Callback {
+        List<String> names = Arrays.asList("John", "Alice", "Bob", "Samantha");
+        // анонимный класс
+        Collections.sort(names, new Comparator<String>() {
+            @Override
+            public int compare(String o1, String o2) {
+                return o1.length() - o2.length();
+            }
+        });
 
-    void onDateChanged(Date date);
+        // то же с лямбдой
+        Collections.sort(names, (o1, o2) -> o1.length() - o2.length());
 
-}
+        //_________________________________________
 
-class SystemClockObserver {
-    Callback callback;
+        // анонимный класс
+        List<String> filteredNames = names.stream().filter(new Predicate<String>() {
+            @Override
+            public boolean test(String name) {
+                return name.startsWith("S");
+            }
+        }).collect(Collectors.toList());
 
-    public SystemClockObserver() {
-    }
+        // то же с лямбдой
+        List<String> filteredNamesByLambda =
+            names.stream().filter(name -> name.startsWith("S")).collect(Collectors.toList());
 
-    public void startObserve(Callback callback) {
-        Date date = Date.from(Instant.now());
-        if (Date.from(Instant.now()).toString().equals("01.01.2023")) {
-            callback.onDateChanged(date);
-        }
+        //_________________________________________
+
+        Function<Integer, Integer> square = (number) -> number * number;
+        System.out.println(square.apply(5)); // Output: 25
     }
 }
