@@ -14,15 +14,16 @@ interface TaxPayer {
 public class Contrvariance {
   public static void main(String[] args) {
     Kindergarten kindergarten = new Kindergarten();
-    Fns fns = new Fns();
+    TaxInspection taxInspection = new TaxInspection();
     Human human = new Human();
     addNewHumanToList(kindergarten.getChildren(), human);
-    addNewHumanToList(fns.getNalogoplatelshik(), human);
+    addNewHumanToList(taxInspection.getTaxPayers(), human);
   }
 
-  static void addNewHumanToList(List<? super Human> list, Human human) {
-    list.add(human);
+  static void addNewHumanToList(List<? super Human> humanList, Human human) {
+    humanList.add(human);
   }
+
 }
 
 class Kindergarten {
@@ -33,10 +34,10 @@ class Kindergarten {
   }
 }
 
-class Fns {
+class TaxInspection {
   private List<TaxPayer> taxPayers = new ArrayList();
 
-  List<TaxPayer> getNalogoplatelshik() {
+  List<TaxPayer> getTaxPayers() {
     return taxPayers;
   }
 }

@@ -6,9 +6,9 @@ public class Utils {
   }
 
   public static void main(String[] args) {
-    boolean stringEqual = Utils.<String>isEqual("Hello", "World");
+    boolean stringEqual = Utils.isEqual("Hello", "world");
     System.out.println(stringEqual);
-    boolean intEqual = Utils.<Integer>isEqual(42, 42);
-    System.out.println(stringEqual);
+    boolean intEqual = Utils.isEqual(42, 42);
+    System.out.println(intEqual);
   }
 }

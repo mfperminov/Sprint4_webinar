@@ -7,6 +7,11 @@ interface Shape {
   double area();
 }
 
+class Parent{}
+
+class Son extends Parent{}
+
+// List<Son> не наследник List<Parent>
 public class Covariance {
   public static void main(String[] args) {
     List<Circle> circles = Arrays.asList(new Circle(1.0), new Circle(2.0));

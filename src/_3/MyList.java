@@ -14,8 +14,8 @@ public class MyList<T> {
     return list.get(index);
   }
 
-  //public void createElementAndAddToList() {
-  //    T element = new T();
-  //    add(element);
-  //}
+  public void createElementAndAddToList() {
+//      T element = new T();
+//      add(element);
+  }
 }

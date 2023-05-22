@@ -2,6 +2,11 @@ package _1;
 
 import java.util.Random;
 
+class Result {
+    private int a;
+    private String b;
+}
+
 public class Pair<A, B> {
     public final A first;
     public final B second;
