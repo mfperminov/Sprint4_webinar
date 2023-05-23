@@ -7,6 +7,11 @@ class Result {
     private String b;
 }
 
+class OtherResult {
+    private long c;
+    private CharSequence charSequence;
+}
+
 public class Pair<A, B> {
     public final A first;
     public final B second;

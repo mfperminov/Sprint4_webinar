@@ -3,15 +3,22 @@ package _5;
 import java.util.Arrays;
 import java.util.List;
 
+class Box<T> {}
+
+class Father {}
+
+class Son extends Father {}
+
+/*
+ Son ----> Father
+ Box<Son> !-> Box<Father>
+ Box<? extends Son> --> Box<Father>
+ */
+
 interface Shape {
   double area();
 }
 
-class Parent{}
-
-class Son extends Parent{}
-
-// List<Son> не наследник List<Parent>
 public class Covariance {
   public static void main(String[] args) {
     List<Circle> circles = Arrays.asList(new Circle(1.0), new Circle(2.0));
@@ -24,6 +31,8 @@ public class Covariance {
   }
 
   public static double totalArea(List<? extends Shape> shapes) {
+    // можем читать элементы как Shape, ведь точно знаем что она верхняя граница какого бы ты не было элемента внутри.
+    // но не можем записать ничего. Потому что точно не знаем, какой наследник от Shape там сейчас?
     double sum = 0.0;
     for (Shape shape : shapes) {
       sum += shape.area();

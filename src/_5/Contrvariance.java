@@ -21,6 +21,9 @@ public class Contrvariance {
   }
 
   static void addNewHumanToList(List<? super Human> humanList, Human human) {
+    // можем точно добавлять Human в список - ведь там сто процентов находится какой то из интерфейсов
+    // который Human реализует.
+    // не можем читать. а откуда знаем какой?
     humanList.add(human);
   }
 
